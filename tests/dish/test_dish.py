@@ -44,3 +44,5 @@ def test_dish():
     farinha_restrictions = {Restriction.GLUTEN}
 
     assert prato.get_restrictions() == farinha_restrictions
+
+    assert prato.get_ingredients() == {ingrediente_farinha}

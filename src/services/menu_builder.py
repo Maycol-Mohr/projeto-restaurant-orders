@@ -26,4 +26,16 @@ class MenuBuilder:
 
     # Req 4
     def get_main_menu(self, restriction=None) -> pd.DataFrame:
-        pass
+        pratos = []
+
+        for cardapio in self.menu_data.dishes:
+            cardapios = {
+                'dish_name': cardapio.name,
+                'ingredients': cardapio.get_ingredients(),
+                'price': cardapio.price,
+                'restrictions': cardapio.get_restrictions()
+            }
+            if restriction not in cardapio.get_restrictions():
+                pratos.append(cardapios)
+
+        return pd.DataFrame(pratos)
