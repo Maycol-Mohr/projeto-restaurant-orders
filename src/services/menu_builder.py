@@ -30,12 +30,15 @@ class MenuBuilder:
 
         for cardapio in self.menu_data.dishes:
             cardapios = {
-                'dish_name': cardapio.name,
-                'ingredients': cardapio.get_ingredients(),
-                'price': cardapio.price,
-                'restrictions': cardapio.get_restrictions()
+                "dish_name": cardapio.name,
+                "ingredients": cardapio.get_ingredients(),
+                "price": cardapio.price,
+                "restrictions": cardapio.get_restrictions(),
             }
-            if restriction not in cardapio.get_restrictions():
+            if (
+                restriction not in cardapio.get_restrictions()
+                and self.inventory.check_recipe_availability(cardapio.recipe)
+            ):
                 pratos.append(cardapios)
 
         return pd.DataFrame(pratos)

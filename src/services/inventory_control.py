@@ -27,8 +27,19 @@ class InventoryMapping:
 
     # Req 5.1
     def check_recipe_availability(self, recipe: Recipe):
-        pass
+        for initial_amount in recipe:
+            if (
+                initial_amount not in self.inventory
+                or recipe[initial_amount] > self.inventory[initial_amount]
+            ):
+                return False
+        return True
 
     # Req 5.2
     def consume_recipe(self, recipe: Recipe) -> None:
-        pass
+        if not self.check_recipe_availability(recipe):
+            raise ValueError
+
+        for initial_amount in recipe:
+            print(initial_amount)
+            self.inventory[initial_amount] -= recipe[initial_amount]
