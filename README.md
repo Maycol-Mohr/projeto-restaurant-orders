@@ -1,6 +1,6 @@
 # Habilidades exercitadas com este projeto:
 
-- Praticar o conceito de Hashmaps através das estruturas de dados Dict e Setdo Python;
+- Praticar o conceito de Hashmaps através das estruturas de dados Dict e Set do Python;
 - Praticar a ferramenta Pandas junto a sua estrutura de dados DataFrame;
 - Praticar os conhecimentos de testes de software;
 - Praticar os conhecimentos de orientação a objetos.
